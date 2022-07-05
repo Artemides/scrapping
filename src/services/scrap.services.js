@@ -44,6 +44,7 @@ class ScrapService{
             detail.visit = document.querySelector(
                 ".deck-card-body .deck-meta li:nth-child(3) .value"
             ).innerText;
+            detail.author =document.querySelector('.deck-card-body .user-info .username').innerText;
             return detail;
             }).catch(err=>console.log(err));
             details.url=url;
@@ -52,9 +53,9 @@ class ScrapService{
         );
         let total=0;
         for (let i = 0; i < titleCards.length; i++) {
-           if(total==5){
-                break;
-           }
+        //    if(total==10){
+        //         break;
+        //    }
            cluster.queue(titleCards[i].url);
            total++;
 
