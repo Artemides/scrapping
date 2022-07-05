@@ -46,7 +46,7 @@ class ScrapService{
             ).innerText;
             detail.author =document.querySelector('.deck-card-body .user-info .username').innerText;
             return detail;
-            }).catch(err=>console.log(err));
+            }).catch(err=>{throw new Error(err)});
             details.url=url;
             slides.push(details);
         }
