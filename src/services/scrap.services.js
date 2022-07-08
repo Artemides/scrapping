@@ -9,9 +9,7 @@ class ScrapService{
         const page = await browser.newPage();
         await page.goto("https://slides.com/explore");
         let slides = [];
-        const titleCards = await (
-            await page
-        ).evaluate(() => {
+        const titleCards = await page.evaluate(() => {
             let total=0;
             return Array.from(document.querySelectorAll(".carousel li")).map((e) => {
                 let slide = {};
@@ -20,6 +18,7 @@ class ScrapService{
             
             });
         });
+        await browser.close();
         const cluster = await Cluster.launch({
             concurrency: Cluster.CONCURRENCY_BROWSER,
             maxConcurrency: 8,
@@ -62,7 +61,7 @@ class ScrapService{
         }
         await cluster.idle();
         await cluster.close();
-        await browser.close();
+       
         return slides;
     }
 }
