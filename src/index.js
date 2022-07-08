@@ -6,11 +6,11 @@ const app=express();
 const port= process.env.PORT || 4000;
 app.use(express.json());
 app.use(cors());
-app.get('/slides-scrap',(req,res)=>{
+app.get('/slides-scrap',async (req,res)=>{
     try {
-       // const result=await service.Scrap();
+        const result=await service.Scrap();
         // console.log(result);
-        res.status(200).json({"api":"slides-scrap"});
+        res.status(200).json(result);
     } catch (error) {
         res.status(500).json(error);
     }

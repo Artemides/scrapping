@@ -24,9 +24,7 @@ class ScrapService{
             maxConcurrency: 8,
         });
         await cluster.task(async ({ page, data: url }) => {
-            await page.goto(url,{
-                waitUntil: "networkidle2"
-            });
+            await page.goto(url);
             const details = await page.evaluate(
             () => {
             let detail = {};
