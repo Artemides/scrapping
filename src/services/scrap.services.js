@@ -5,7 +5,10 @@ const { Cluster } = require("puppeteer-cluster");
 class ScrapService{
 
     async Scrap(){
-        const browser = await puppeteer.launch();
+        const browser = await puppeteer.launch({
+            headless: true,
+            args:["--no-sandbox"]
+        });
         const page = await browser.newPage();
         await page.goto("https://slides.com/explore");
         let slides = [];
