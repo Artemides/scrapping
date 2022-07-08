@@ -52,9 +52,9 @@ class ScrapService{
         );
         let total=0;
         for (let i = 0; i < titleCards.length; i++) {
-        //    if(total==10){
-        //         break;
-        //    }
+           if(total==1){
+                break;
+           }
            cluster.queue(titleCards[i].url);
            total++;
 
