@@ -36,4 +36,4 @@ npm run start
 
 ## COMENTARIOS
 
-La Aplicación no está optimizada para procesar multiples url's simultaneos, en consecuencia puede tomar alguna demora "Paciencia" 
+La Aplicación no está optimizada para procesar multiples url's simultaneos en forma concurrente, en consecuencia puede tomar alguna demora "Paciencia" 
